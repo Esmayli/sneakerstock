@@ -1,87 +1,110 @@
 # SneakerStock
 
-SneakerStock is a Laravel + Livewire inventory management app for sneaker stores. It allows you to manage categories, add inventory variants, track stock levels, upload product images, and monitor low-stock alerts from a single dashboard.
+SneakerStock is a Laravel + Livewire inventory management system built for sneaker stores and retail teams. It helps you organize categories, add stock variants, manage prices, upload product pictures, and monitor low-stock items from a clean admin dashboard.
 
 ## Features
 
-- Inventory dashboard with stock summary
-- CRUD for product categories
-- Product variant management with brand, model, size, color, SKU, prices, and stock
-- Image upload for each variant
-- Low-stock alerting
-- Role-based admin access
-- SQLite-ready setup for quick local development
+- Inventory dashboard with product summary metrics
+- Category management with image support
+- Product variant management (brand, model, size, color, SKU, price, stock)
+- Stock movement tracking
+- Image uploads for products and categories
+- Low-stock alerts and summary views
+- Admin role and authentication flow
+- SQLite-based setup for fast local development
+
+## Tech stack
+
+- Laravel 12
+- Livewire 4
+- Fortify authentication
+- Spatie Laravel Permission
+- Vite + Tailwind CSS
+- SQLite
 
 ## Requirements
+
+Before installing, make sure you have:
 
 - PHP 8.2+
 - Composer
 - Node.js 18+
 - npm
-- SQLite extension enabled in PHP (default local setup)
+- SQLite enabled in your PHP installation
 
-## Quick start
+## Installation
 
-1. Clone the repository
-   ```bash
-   git clone https://github.com/Esmayli/sneakerstock.git
-   cd sneakerstock
-   ```
+### 1) Clone the project
 
-2. Install PHP dependencies
-   ```bash
-   composer install
-   ```
+```bash
+git clone https://github.com/Esmayli/sneakerstock.git
+cd sneakerstock
+```
 
-3. Install frontend dependencies
-   ```bash
-   npm install
-   ```
+### 2) Install PHP dependencies
 
-4. Create your environment file
-   ```bash
-   cp .env.example .env
-   ```
+```bash
+composer install
+```
 
-5. Generate the application key
-   ```bash
-   php artisan key:generate
-   ```
+### 3) Install frontend dependencies
 
-6. Initialize the SQLite database
-   ```bash
-   touch database/database.sqlite
-   ```
+```bash
+npm install
+```
 
-7. Run migrations and seed sample data
-   ```bash
-   php artisan migrate --seed
-   ```
+### 4) Configure environment
 
-8. Build the frontend assets
-   ```bash
-   npm run build
-   ```
+Copy the example environment file:
 
-9. Start the app
-   ```bash
-   php artisan serve
-   ```
+```bash
+cp .env.example .env
+```
 
-Then open:
+Generate the app key:
+
+```bash
+php artisan key:generate
+```
+
+### 5) Create the SQLite database file
+
+```bash
+touch database/database.sqlite
+```
+
+### 6) Run migrations and seed sample data
+
+```bash
+php artisan migrate --seed
+```
+
+### 7) Build the frontend assets
+
+```bash
+npm run build
+```
+
+### 8) Start the application
+
+```bash
+php artisan serve
+```
+
+Open:
 
 ```text
 http://localhost:8000
 ```
 
-## Optional admin account
+## Admin account setup
 
-If you want an admin login, set the following variables in `.env` before running the seed command:
+If you want to create an admin user manually, add these variables to your `.env` file before running the seed command:
 
 ```env
 ADMIN_NAME=Administrator
 ADMIN_EMAIL=admin@example.com
-ADMIN_PASSWORD=SecretPassword123
+ADMIN_PASSWORD=StrongPassword123
 ```
 
 Then run:
@@ -92,13 +115,13 @@ php artisan db:seed --class=AdminUserSeeder
 
 ## Development mode
 
-For live frontend rebuilds and local development:
+If you want Vite in watch mode while working locally:
 
 ```bash
 npm run dev
 ```
 
-In a separate terminal, run:
+Then in another terminal:
 
 ```bash
 php artisan serve
@@ -120,11 +143,11 @@ php artisan optimize
 app/            Laravel application code
 config/         Configuration files
 database/       Migrations and seeders
-public/         Public assets and entry point
+public/         Public assets and entry points
 resources/      Blade templates, CSS, JS
-routes/          Web and admin routes
-storage/        Logs and generated files
-tests/          Automated tests
+routes/          Web routes
+storage/        Logs and generated file storage
+tests/          Test suite
 ```
 
 ## License
